@@ -34,93 +34,10 @@ namespace Area_por_punto_medio
                 n = Convert.ToDouble(Console.ReadLine());
 
                 DeltaX = (b - a) / n;
-
+                Console.WriteLine("DeltaX: "+DeltaX);
                 Expression e = new Expression(expression);
 
-                // aAcu = a + DeltaX;
-                // midpoint += Math.Sqrt((aAcu)) / 2;
-                //   Console.WriteLine(DeltaX);
-                //   Console.WriteLine(midpoint);
-
-                // ejercicio 77
-                /*
-                for (int i = 0; i < n; i++)
-                {
-                    if (i == 0)
-                    {
-                        aAcu += a;
-                        bAcu = aAcu + DeltaX;
-                        Console.WriteLine("a: "+aAcu);
-                        Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + Math.Sqrt((aAcu + bAcu) / 2));
-                        midpoint += Math.Sqrt((aAcu + bAcu) / 2);
-                        Console.WriteLine(midpoint);
-                    }
-                    else
-                    {
-                        aAcu += DeltaX;
-                        bAcu = aAcu + DeltaX;
-                      //  Console.WriteLine("a: " + aAcu);
-                     //   Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + Math.Sqrt((aAcu + bAcu) / 2));
-                        midpoint += Math.Sqrt((aAcu + bAcu)/ 2) ;
-                   //     Console.WriteLine(midpoint);
-                    }
-                }
-                */
-
-                //Ejercicio 78
-                /*
-                for (int i = 0; i < n; i++)
-                {
-                    if (i == 0)
-                    {
-                        aAcu += a;
-                        bAcu = aAcu + DeltaX;
-                        Console.WriteLine("a: " + aAcu);
-                        Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + 8/(Math.Pow(((aAcu + bAcu) / 2),2)+1));
-                        midpoint += 8 / (Math.Pow(((aAcu + bAcu) / 2), 2)+ 1);
-                Console.WriteLine(midpoint);
-                    }
-                    else
-                    {
-                        aAcu += DeltaX;
-                        bAcu = aAcu + DeltaX;
-                        //  Console.WriteLine("a: " + aAcu);
-                        //   Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + 8 / (Math.Pow(((aAcu + bAcu) / 2), 2) + 1));
-                        midpoint += 8 / (Math.Pow(((aAcu + bAcu) / 2), 2) + 1);
-                        //     Console.WriteLine(midpoint);
-                    }
-                }
-                */
-                //ejercicio 79
-                /*
-                for (int i = 0; i < n; i++)
-                {
-                    if (i == 0)
-                    {
-                        aAcu += a;
-                        bAcu = aAcu + DeltaX;
-                        Console.WriteLine("a: " + aAcu);
-                        Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + Math.Tan((Math.PI*(aAcu + bAcu) / 2)/8));
-                        midpoint += Math.Tan((Math.PI * (aAcu + bAcu) / 2) / 8);
-                        Console.WriteLine(midpoint);
-                    }
-                    else
-                    {
-                        aAcu += DeltaX;
-                        bAcu = aAcu + DeltaX;
-                        //  Console.WriteLine("a: " + aAcu);
-                        //   Console.WriteLine("b: " + bAcu);
-                        Console.WriteLine("result: " + Math.Tan((Math.PI * (aAcu + bAcu) / 2) / 8));
-                        midpoint += Math.Tan((Math.PI * (aAcu + bAcu) / 2) / 8);
-                        //     Console.WriteLine(midpoint);
-                    }
-                }
-                */
+                
 
                 for (int i = 0; i < n; i++)
                 {
@@ -128,14 +45,10 @@ namespace Area_por_punto_medio
                     {
                         aAcu += a;
                         bAcu = aAcu + DeltaX;
-                        //  Console.WriteLine("a: " + aAcu);
-                        //  Console.WriteLine("b: " + bAcu);
                         e.Parameters["x"] = aAcu;
                         e.Parameters["y"] = bAcu;
                         e.Parameters["PI"] = Math.PI;
-
                         Console.WriteLine(e.Evaluate());
-
                         midpoint += (double)e.Evaluate();
 
                     }
@@ -145,9 +58,7 @@ namespace Area_por_punto_medio
                         bAcu = aAcu + DeltaX;
                         e.Parameters["x"] = aAcu;
                         e.Parameters["y"] = bAcu;
-
                         Console.WriteLine(e.Evaluate());
-
                         midpoint += (double)e.Evaluate();
 
 
