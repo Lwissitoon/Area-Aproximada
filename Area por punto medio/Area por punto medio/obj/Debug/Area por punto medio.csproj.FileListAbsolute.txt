@@ -1,0 +1,7 @@
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\bin\Debug\Area por punto medio.exe.config
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\obj\Debug\Area por punto medio.csprojResolveAssemblyReference.cache
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\bin\Debug\Area por punto medio.exe
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\bin\Debug\Area por punto medio.pdb
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\obj\Debug\Area por punto medio.exe
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\obj\Debug\Area por punto medio.pdb
+c:\users\ntbpd01\documents\visual studio 2015\Projects\Area por punto medio\Area por punto medio\bin\Debug\NCalc.dll
