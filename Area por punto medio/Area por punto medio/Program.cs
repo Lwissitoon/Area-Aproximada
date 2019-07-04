@@ -34,7 +34,7 @@ namespace Area_por_punto_medio
                 n = Convert.ToDouble(Console.ReadLine());
 
                 DeltaX = (b - a) / n;
-                Console.WriteLine("DeltaX: "+DeltaX);
+                //Console.WriteLine("DeltaX: "+DeltaX);
                 Expression e = new Expression(expression);
 
                 
@@ -64,7 +64,7 @@ namespace Area_por_punto_medio
 
                     }
                 }
-                Console.WriteLine("\n Area Primedio es igual a : ");
+                Console.WriteLine("\n Area Promedio es igual a : ");
                 Console.WriteLine(DeltaX * midpoint);
 
                 Console.WriteLine("\n Desea Continuar?");
