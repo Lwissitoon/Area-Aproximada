@@ -20,60 +20,125 @@ namespace Area_por_punto_medio
             string Cont = "SI";
             while (Cont == "SI")
             {
-                Console.WriteLine("\n Defina Expresión matematica");
-                string expression = Console.ReadLine();
+
                 double a, b, n;
                 double midpoint = 0, aAcu = 0, bAcu = 0;
                 double DeltaX = 0;
+                Console.WriteLine("\n Selecciona metodo 1) Punto medio  2) Trapezio");
+                Byte select= Convert.ToByte( Console.ReadLine());
 
+
+                Console.WriteLine("\n Defina Expresión matematica");
+                string expression = Console.ReadLine();
                 Console.WriteLine("Defina limite inicial: ");
                 a = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Defina limite final: ");
                 b = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Defina cantidad de rectangulos: ");
+                Console.WriteLine("Defina cantidad de divisiones: ");
                 n = Convert.ToDouble(Console.ReadLine());
 
                 DeltaX = (b - a) / n;
-                //Console.WriteLine("DeltaX: "+DeltaX);
+                Console.WriteLine("DeltaX: " + DeltaX);
                 Expression e = new Expression(expression);
 
                 
 
-                for (int i = 0; i < n; i++)
+                switch (select)
                 {
-                    if (i == 0)
-                    {
-                        aAcu += a;
-                        bAcu = aAcu + DeltaX;
-                        e.Parameters["x"] = aAcu;
-                        e.Parameters["y"] = bAcu;
-                        e.Parameters["PI"] = Math.PI;
-                        Console.WriteLine(e.Evaluate());
-                        midpoint += (double)e.Evaluate();
 
-                    }
-                    else
-                    {
-                        aAcu += DeltaX;
-                        bAcu = aAcu + DeltaX;
-                        e.Parameters["x"] = aAcu;
-                        e.Parameters["y"] = bAcu;
-                        Console.WriteLine(e.Evaluate());
-                        midpoint += (double)e.Evaluate();
+                    case 1:
+                        { 
+                            for (int i = 0; i < n; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    aAcu += a;
+                                    bAcu = aAcu + DeltaX;
+                                    e.Parameters["x"] = aAcu;
+                                    e.Parameters["y"] = bAcu;
+                                    e.Parameters["PI"] = Math.PI;
+                                    e.Parameters["T"] = (aAcu + bAcu) / 2;
+                                    Console.WriteLine(e.Evaluate());
+                                    midpoint += (double)e.Evaluate();
+
+                                }
+                                else
+                                {
+                                    aAcu += DeltaX;
+                                    bAcu = aAcu + DeltaX;
+                                    e.Parameters["x"] = aAcu;
+                                    e.Parameters["y"] = bAcu;
+                                    e.Parameters["PI"] = Math.PI;
+                                    e.Parameters["T"] = (aAcu + bAcu) / 2;
+                                    Console.WriteLine(e.Evaluate());
+                                    midpoint += (double)e.Evaluate();
 
 
-                    }
-                }
-                Console.WriteLine("\n Area Promedio es igual a : ");
-                Console.WriteLine(DeltaX * midpoint);
+                                }
+                            }
+                            Console.WriteLine("\n Area Promedio es igual a : ");
+                            Console.Write(DeltaX * midpoint);
+                            break;
+                        }
 
-                Console.WriteLine("\n Desea Continuar?");
+
+                    case 2:
+                        {
+ 
+                            for (int i = 0; i <n+1; i++)
+                            {
+                                if (i.Equals(0))
+                                {
+                                    aAcu += a + DeltaX;
+                                    e.Parameters["x"] = a;
+                                    Console.WriteLine(a);
+                                    e.Parameters["y"] = bAcu;
+                                    e.Parameters["PI"] = Math.PI;
+                                    e.Parameters["T"] = (aAcu + bAcu) / 2;
+                                    Console.WriteLine(e.Evaluate());
+                                    midpoint += 0.5 * ((double)e.Evaluate());
+                                }
+                                else if (i==n) {
+                                    Console.WriteLine(i+"final");
+                                    aAcu += a;
+                                    e.Parameters["x"] =a + (i * DeltaX);
+                                    Console.WriteLine(0.5 * (a + (i * DeltaX)));
+                                    e.Parameters["y"] = bAcu;
+                                    e.Parameters["PI"] = Math.PI;
+                                    e.Parameters["T"] = (aAcu + bAcu) / 2;
+                                    Console.WriteLine(0.5 * ((double)e.Evaluate()));
+                                    midpoint += 0.5 * ((double)e.Evaluate());
+                                }
+                                else
+                                {
+                                    Console.WriteLine(i);
+                                    aAcu += a;
+                                    e.Parameters["x"] = a + (i * DeltaX);
+                                    Console.WriteLine(a + (i * DeltaX));
+                                    e.Parameters["y"] = bAcu;
+                                    e.Parameters["PI"] = Math.PI;
+                                    e.Parameters["T"] = (aAcu + bAcu) / 2;
+                                    Console.WriteLine(e.Evaluate());
+                                    midpoint += (double)e.Evaluate();
+                                }
+
+                              }
+      
+                            }
+                            Console.WriteLine("\n Area Promedio es igual a : ");
+                            Console.Write((DeltaX) * midpoint);
+                            break;
+                        }
+                Console.WriteLine("\n\n Desea Continuar?");
                 Cont = Console.ReadLine();
                 Cont = Cont.ToUpper();
+
+                }
+
 
             }
         }
     }
-}
+
 
 
